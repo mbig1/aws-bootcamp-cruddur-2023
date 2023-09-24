@@ -5,6 +5,7 @@ class UserActivities:
     # xray ---
     segment = xray_recorder.begin_segment('user_activities')
 
+    try:
     model = {
       'errors': None,
       'data': None
@@ -32,5 +33,8 @@ class UserActivities:
       "results-size": len(model['data'])
     }
     subsegment.put_metadata('key', dict, 'namespace')
-
+        xray_recorder.end_subsegment()
+    finally:  
+    #  # Close the segment
+      xray_recorder.end_subsegment()
     return model
