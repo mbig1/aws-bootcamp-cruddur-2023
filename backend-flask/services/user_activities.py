@@ -6,10 +6,10 @@ class UserActivities:
     segment = xray_recorder.begin_segment('user_activities')
 
     try:
-    model = {
-      'errors': None,
-      'data': None
-    }
+      model = {
+        'errors': None,
+        'data': None
+      }
 
     now = datetime.now(timezone.utc).astimezone()
     
